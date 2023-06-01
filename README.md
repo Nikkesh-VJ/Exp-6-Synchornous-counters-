@@ -47,23 +47,60 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 4-bit Count Down Counter
 ### Procedure
 /* write all the steps invloved */
+1.Create a new project in QuartusII software.
+2.Name the project as uc for upcounter and dc for down counter. 
+3.Create a new verilog hdl file in the project file. 
+4.Name the module as dc and uc for downcounter and up counter. 
+5.Within the module declare input and output variables.
+6.Create a loopusing if-else with condition parameter as reset value.
+7.End the loop. 8.End the module.
+
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by:Nikkesh
+RegisterNumber:212222050042
 */
+~~~
+UP COUNTER 
+module upcounter(clk,a);
+input clk;
+output reg[3:0]a;
+always@(posedge clk)
+begin
+a[3]=(a[2] & a[1] & a[0]) ^ a[3];
+a[2]=(a[1] & a[0]) ^ a[2];
+a[1]=(a[0] ^ a[1]);
+a[0]=1 ^ a[0];
+end
+endmodule
 
-
+DOWN COUNTER 
+module downcounter(clk,a);
+input clk;
+output reg[3:0]a;
+always@(posedge clk)
+begin
+a[3]=(~a[2] & ~a[1] & ~a[0])^ a[3];
+a[2]=(~a[1] & ~a[0]) ^ a[2];
+a[1]=(~a[0] ^ a[1]);
+a[0]=1 ^ a[0];
+end
+endmodule
+~~~
 
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+UP COUNTER 
+![uprtl](https://github.com/Nikkesh-VJ/Exp-6-Synchornous-counters-/assets/130572280/61e10071-1cc7-4492-8c04-203b7a3f3e10)
 
+DOWN COUNTER 
+![WhatsApp Image 2023-06-01 at 10 08 41](https://github.com/Nikkesh-VJ/Exp-6-Synchornous-counters-/assets/130572280/2728df29-fd48-4c66-bf85-fda2f37b210d)
 
 
 
@@ -73,12 +110,23 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+UP COUNTER 
+![uptd](https://github.com/Nikkesh-VJ/Exp-6-Synchornous-counters-/assets/130572280/4e1994bc-40c0-454a-86b6-0f96c7e6819a)
+
+DOWN COUNTER 
+![dctd](https://github.com/Nikkesh-VJ/Exp-6-Synchornous-counters-/assets/130572280/b6d71c01-9732-4583-84ec-8fc60701c74b)
 
 
 
 
 
 ### TRUTH TABLE 
+UP COUNTER 
+![Screenshot 2023-06-01 101938](https://github.com/Nikkesh-VJ/Exp-6-Synchornous-counters-/assets/130572280/1cda9cd4-435f-4674-be34-d13e14a05314)
+
+DOWN COUNTER 
+![Screenshot 2023-06-01 102322](https://github.com/Nikkesh-VJ/Exp-6-Synchornous-counters-/assets/130572280/d6559e2d-b835-4907-bcea-5cd1003da2f3)
+
 
 
 
@@ -86,3 +134,5 @@ RegisterNumber:
 
 
 ### RESULTS 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different
+logic gates are verified.
